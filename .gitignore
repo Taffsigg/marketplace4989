@@ -1,0 +1,10 @@
+# AWS bucket and database access info
+AWS_SDK.php
+config.php
+
+# vendor
+vendor
+
+# sass mapping
+.sass-cache
+style.css.map

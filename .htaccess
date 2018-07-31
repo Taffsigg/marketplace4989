@@ -1,0 +1,39 @@
+RewriteEngine on
+RewriteBase /
+
+# RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+\?page=([^\s]+) [NC]
+# RewriteRule ^ %1? [R=301,L]
+
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^(.*)$ /?page=$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)$ /?page=$1 [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^sales/([^/]+)$ /?page=sales&cat=$1&p=1 [L,QSA]
+
+ RewriteCond %{REQUEST_FILENAME} !-f
+ RewriteCond %{REQUEST_FILENAME} !-d
+ RewriteRule ^sales/([^/]+)/([^/]+)$ /?page=sales&cat=$1&p=$2 [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^post/([^/]*)$ /?page=post&post_id=$1 [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^edit-post/([^/]*)$ /?page=edit-post&post_id=$1 [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^search/([^/]*)$ /?page=search&q=$1&p=1 [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^search/([^/]+)/([^/]+)$ /?page=search&q=$1&p=$2 [L,QSA]
+
+Options -indexes
